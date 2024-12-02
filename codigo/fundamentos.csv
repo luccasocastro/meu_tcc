@@ -1,0 +1,55 @@
+,Ticker,Empresa,Setor,Indústria,P/L,P/VP,ROE (%),Dívida/Patrimônio,Margem Líquida (%),Valor de Mercado (Bilhões)
+0,PETR4.SA,Petróleo Brasileiro S.A. - Petrobras,Energy,Oil & Gas Integrated,5.0519485,1.2736143,21.757999,81.548,16.81,529.05558016
+1,VALE3.SA,Vale S.A.,Basic Materials,Other Industrial Metals & Mining,4.5215383,1.2032014,23.332000999999998,41.793,22.856002,250.915356672
+2,ABEV3.SA,Ambev S.A.,Consumer Defensive,Beverages - Brewers,14.465909,2.040064,15.071000000000002,3.418,16.922002,200.219967488
+5,B3SA3.SA,"B3 S.A. - Brasil, Bolsa, Balcão",Financial Services,Financial Data & Stock Exchanges,11.871796,2.6973493,21.895999999999997,67.222,46.104,49.615822848
+6,WEGE3.SA,WEG S.A.,Industrials,Specialty Industrial Machinery,37.199997,11.4741535,34.195,18.449,17.055,226.30580224
+7,EQTL3.SA,Equatorial Energia S.A.,Utilities,Utilities - Regulated Electric,16.281916,1.6646726,13.133000000000001,178.08,5.1960003,38.17250816
+8,RADL3.SA,Raia Drogasil S.A.,Healthcare,Pharmaceutical Retailers,36.424244,6.5414968,18.812001000000002,119.836,2.945,41.233891328
+10,ITSA4.SA,Itaúsa S.A.,Industrials,Conglomerates,7.1691175,1.1644572,16.341,15.396,172.928,101.311275008
+11,JBSS3.SA,JBS S.A.,Consumer Defensive,Packaged Foods,11.207208,1777.1428,36.137,230.425,1.8370000000000002,82.780233728
+12,RENT3.SA,Localiza Rent a Car S.A.,Industrials,Rental & Leasing Services,23.784811,1.5546914,6.6139996000000005,173.212,4.759,39.597297664
+14,LREN3.SA,Lojas Renner S.A.,Consumer Cyclical,Department Stores,12.871796,1.4323759,11.5229994,37.767,8.364,15.839053824
+15,SUZB3.SA,Suzano S.A.,Basic Materials,Paper & Paper Products,19.318886,1.8646348,10.078,226.865,9.58,77.328572416
+16,KLBN11.SA,Klabin S.A.,Basic Materials,Paper & Paper Products,33.6006,13.517954,14.674999999999999,321.237,10.934000000000001,128.619667456
+17,GGBR4.SA,Gerdau S.A.,Basic Materials,Steel,8.903508,0.76546,9.149000000000001,24.909,7.437,41.407127552
+20,ELET3.SA,Centrais Elétricas Brasileiras S.A. - Eletrobrás,Utilities,Utilities - Renewable,7.7936506,0.63746125,8.665000000000001,59.846,27.093,78.567071744
+21,TAEE11.SA,Transmissora Aliança de Energia Elétrica S.A.,Utilities,Utilities - Regulated Electric,39.183907,1.6872061,24.502,145.404,42.408,11.743971328
+22,CMIG4.SA,Companhia Energética de Minas Gerais - CEMIG,Utilities,Utilities - Diversified,5.69378,1.3809911,23.719999,45.253,15.741,37.007572992
+24,EMBR3.SA,Embraer S.A.,Industrials,Aerospace & Defense,14.282555,2.5011833,16.434,80.775,8.272999500000001,42.70422016
+25,CPLE6.SA,Companhia Paranaense de Energia - COPEL,Utilities,Utilities - Diversified,11.698795,1.1360712,9.604,65.055,13.974,27.689424896
+27,CCRO3.SA,CCR S.A.,Industrials,Infrastructure Operations,14.141026,1.647498,13.284999000000001,250.429,7.274,22.258429952
+28,PRIO3.SA,Prio S.A.,Energy,Oil & Gas E&P,6.896907,1.8409466,31.524,106.967,34.107,33.489846272
+29,BRAP4.SA,Bradespar S.A.,Financial Services,Asset Management,4.2807426,0.92578655,22.847,0.032,11554.251,7.04013312
+31,YDUQ3.SA,Yduqs Participações S.A.,Consumer Defensive,Education & Training Services,0.052706555,0.6823043,6.388000000000001,160.15,3.8540001999999998,2.568512256
+32,HYPE3.SA,Hypera S.A.,Healthcare,Drug Manufacturers - Specialty & Generic,7.9349594,1.0738846,14.647001000000001,86.489,21.142,12.349953024
+33,TIMS3.SA,TIM S.A.,Communication Services,Telecom Services,12.0,1.5339918,12.369,60.216,12.706000000000001,38.342303744
+34,FLRY3.SA,Fleury S.A.,Healthcare,Diagnostics & Research,10.715447,1.4131018,11.261000000000001,94.927,8.006,7.173610496
+35,CRFB3.SA,Atacadão S.A.,Consumer Cyclical,Department Stores,640.0,0.6802721,1.131,103.028,0.022000000000000002,13.497984
+36,MULT3.SA,Multiplan Empreendimentos Imobiliários S.A.,Real Estate,Real Estate Services,12.326426,1.8724912,16.188999000000003,49.603,51.900999999999996,12.112560128
+37,MRFG3.SA,Marfrig Global Foods S.A.,Consumer Defensive,Packaged Foods,45.78049,2.285401,1.125,265.442,0.027999999999999997,16.614998016
+39,EGIE3.SA,Engie Brasil Energia S.A.,Utilities,Utilities - Renewable,7.4509807,2.871609,39.259,201.501,39.013,31.005263872
+42,TOTS3.SA,TOTVS S.A.,Technology,Software - Application,25.66355,3.3888683,13.305000999999999,31.829,12.814,16.149994496
+44,USIM5.SA,Usinas Siderúrgicas de Minas Gerais S.A.,Basic Materials,Steel,8.647887,0.31691957,4.1550003,28.021,3.4849998,7.537832448
+45,CSAN3.SA,Cosan S.A.,Energy,Oil & Gas Refining & Marketing,8.5630245,0.38506594,8.899,125.914,5.365,18.981931008
+46,BRFS3.SA,BRF S.A.,Consumer Defensive,Packaged Foods,11.026667,2.790776,16.506,156.369,3.2849999999999997,40.642998272
+48,SEER3.SA,Ser Educacional S.A.,Consumer Defensive,Education & Training Services,22.777777,0.65258914,2.856,136.031,1.791,0.778719168
+51,AMAR3.SA,Marisa Lojas S.A.,Consumer Cyclical,Apparel Retail,0.31849316,4.69697,-200.623,241.991,-33.003,0.477502016
+65,CAML3.SA,Camil Alimentos S.A.,Consumer Defensive,Packaged Foods,5.868852,0.7098245,13.986,189.877,3.7720002000000004,2.44206848
+67,CGAS5.SA,Companhia de Gás de São Paulo - COMGÁS,Utilities,Utilities - Regulated Gas,6.2158275,17.277697,392.22,1008.013,18.642001,16.18898432
+69,CLSC3.SA,Centrais Elétricas de Santa Catarina S.A.,Utilities,Utilities - Regulated Electric,4.5427012,0.9864657,19.329001,93.964,6.039,3.074917376
+70,CMIN3.SA,CSN Mineração S.A.,Basic Materials,Steel,7.43662,2.7076924,41.638002,76.857,25.616,28.681172992
+75,CYRE3.SA,Cyrela Brazil Realty S.A. Empreendimentos e Participações,Consumer Cyclical,Residential Construction,4.919786,0.8970359,16.013001,57.961,17.416,6.898546176
+76,DIRR3.SA,Direcional Engenharia S.A.,Real Estate,Real Estate - Development,9.075235,2.4264522,29.388002,78.611,18.191999,5.01587712
+78,ELET6.SA,Centrais Elétricas Brasileiras S.A. - Eletrobrás,Utilities,Utilities - Renewable,8.845805,0.72351944,8.665000000000001,59.846,27.093,78.56730112
+79,ENGI11.SA,Energisa S.A.,Utilities,Utilities - Regulated Electric,29.13768,5.662583,18.35,163.437,7.6850000000000005,18.381195264
+81,EVEN3.SA,Even Construtora e Incorporadora S.A.,Real Estate,Real Estate - Development,5.947917,0.58271253,16.476,71.816,7.8420000000000005,1.135467776
+83,FLRY3.SA,Fleury S.A.,Healthcare,Diagnostics & Research,10.715447,1.4131018,11.261000000000001,94.927,8.006,7.173610496
+87,GOAU3.SA,Metalurgica Gerdau S.A.,Basic Materials,Steel,7.1572328,0.621722,9.090999499999999,24.792,-0.208,11.595196416
+88,GRND3.SA,Grendene S.A.,Consumer Cyclical,Footwear & Accessories,7.1944437,1.2771202,17.659001,2.023,25.608999999999998,4.673188864
+91,HYPE3.SA,Hypera S.A.,Healthcare,Drug Manufacturers - Specialty & Generic,7.9349594,1.0738846,14.647001000000001,86.489,21.142,12.349953024
+93,IRBR3.SA,IRB-Brasil Resseguros S.A.,Financial Services,Insurance - Reinsurance,6.475514,0.7879359,11.472,10.649,10.1739995,3.35474048
+94,ITSA4.SA,Itaúsa S.A.,Industrials,Conglomerates,7.1691175,1.1644572,16.341,15.396,172.928,101.311275008
+95,JHSF3.SA,JHSF Participações S.A.,Real Estate,Real Estate - Development,4.747253,0.60922295,11.672,71.677,10.637,2.920290048
+96,KLBN11.SA,Klabin S.A.,Basic Materials,Paper & Paper Products,33.6006,13.517954,14.674999999999999,321.237,10.934000000000001,128.619667456
+99,LREN3.SA,Lojas Renner S.A.,Consumer Cyclical,Department Stores,12.871796,1.4323759,11.5229994,37.767,8.364,15.839053824
