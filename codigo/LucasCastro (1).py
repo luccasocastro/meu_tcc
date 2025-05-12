@@ -59,15 +59,12 @@ def remove_duplicate_tickers(df):
 # Funções de coleta e processamento de dados
 
 def get_fundamental_data(tickers):
-    """Coleta dados fundamentalistas de empresas listadas."""
     data_list = []
     for ticker in tickers:
         try:
-            # Baixar informações da empresa
             stock = yf.Ticker(ticker)
             info = stock.info
             
-            # Selecionar dados fundamentalistas relevantes
             data = {
                 "Ticker": ticker,
                 "Empresa": info.get("longName", "N/A"),
@@ -81,15 +78,12 @@ def get_fundamental_data(tickers):
                 "Valor de Mercado (Bilhões)": info.get("marketCap", None) / 1e9 if info.get("marketCap") else None
             }
             
-            # Adicionar aos resultados
             data_list.append(data)
         
         except Exception as e:
             print(f"Erro ao obter dados para o ticker {ticker}: {e}")
     
-    # Converter lista de dicionários em DataFrame
     df = pd.DataFrame(data_list)
-    # Remover registros que tenham valores NaN
     df = remove_nan_records(df)
     df = remove_infinity_records(df)
     return df
