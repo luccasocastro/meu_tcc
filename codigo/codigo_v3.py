@@ -33,9 +33,15 @@ def normalize_data(df):
 
 def ajustar_outliers(dados):
     """Ajusta outliers baseando-se em média e desvio padrão."""
-    for _ in range(20):
-        mean, std_dev = np.mean(dados), np.std(dados)
-        dados = np.clip(dados, mean - 3 * std_dev, mean + 3 * std_dev)
+    for j in range(20):
+        mean = np.mean(dados)
+        str_dev = np.std(dados)
+
+        for i in range(len(dados)):
+            if dados[i] < mean - 3 * str_dev:
+                dados[i] = mean - 3.0 * str_dev
+            elif dados[i] > mean + 3 * str_dev:
+                dados[i] = mean + 3.0 * str_dev
     return dados
 
 
@@ -71,9 +77,11 @@ def get_fundamental_data(tickers):
             data_list.append(data)
         except Exception as e:
             print(f"Erro ao obter dados para o ticker {ticker}: {e}")
+
     df = pd.DataFrame(data_list)
     df = remove_nan_records(df)
-    return remove_infinity_records(df)
+    df = remove_infinity_records(df)
+    return df
 
 
 def get_dividend_yield(tickers):
@@ -82,26 +90,23 @@ def get_dividend_yield(tickers):
     for ticker in tickers:
         try:
             info = yf.Ticker(ticker).info
-            dy = info.get('dividendYield', 0.0) * \
-                100 if info.get('dividendYield') else 0.0
+            dy = info.get('dividendYield')
+
+            if dy is not None:
+                dy = dy * 100
+            else:
+                dy = 0.0
+
             results.append({"Ticker": ticker, "Dividend_Yield": dy})
         except Exception as e:
             print(f"Erro ao processar o ticker {ticker}: {e}")
             results.append({"Ticker": ticker, "Dividend_Yield": None})
     return pd.DataFrame(results)
 
-# Funções para análise e visualização de dados
 
+def processar_dados(buscar_on_yf=False):
+    df = None
 
-def reduzir_dimensoes_svd(df, n_dim=3):
-    """Reduz as dimensões do DataFrame usando SVD."""
-    svd = TruncatedSVD(n_components=n_dim, random_state=42)
-    reduced_data = svd.fit_transform(df)
-    return pd.DataFrame(reduced_data, columns=[f'Dim_{i+1}' for i in range(n_dim)])
-
-
-# Processo principal
-if __name__ == "__main__":
     # Lista de tickers do iBovespa
     tickers = [
         "PETR4.SA", "VALE3.SA", "ABEV3.SA", "ITUB4.SA", "BBDC4.SA",
@@ -126,20 +131,30 @@ if __name__ == "__main__":
         "JHSF3.SA", "KLBN11.SA", "LCAM3.SA", "LIGT3.SA", "LREN3.SA"
     ]
 
-    # Caso ainda não tenha realizado a busca dos dados e salvo no csv
-    # df = get_fundamental_data(tickers)
-    # df.to_csv("fundamentos.csv")
-    # df = df.drop(columns=['P/VP'])
-    # df = df.drop(columns=['Dívida/Patrimônio'])
-    # df = df.drop(columns=['Margem Líquida (%)'])
-    # df = df.drop(columns=['Valor de Mercado (Bilhões)'])
-    # df.to_csv("fundamentalista.csv")
-    # print(df)
+    if buscar_on_yf:
+        df = get_fundamental_data(tickers)
+        df.to_csv("codigo/arquivos/fundamentos.csv")
+        df = df.drop(columns=['Dívida/Patrimônio',
+                              'Margem Líquida (%)', 'Valor de Mercado (Bilhões)'])
+    else:
+        df = pd.read_csv(
+            "codigo/arquivos/fundamentos.csv").drop(columns=['Unnamed: 0'])
+        df = df.drop(columns=['Dívida/Patrimônio',
+                              'Margem Líquida (%)', 'Valor de Mercado (Bilhões)'])
+    return df
 
-    # Obtenção e limpeza dos dados
-    df = pd.read_csv("codigo/fundamentos.csv").drop(columns=['Unnamed: 0'])
-    df = df.drop(columns=['Dívida/Patrimônio',
-                 'Margem Líquida (%)', 'Valor de Mercado (Bilhões)'])
+
+# Funções para análise e visualização de dados
+
+def reduzir_dimensoes_svd(df, n_dim=3):
+    """Reduz as dimensões do DataFrame usando SVD."""
+    svd = TruncatedSVD(n_components=n_dim, random_state=42)
+    reduced_data = svd.fit_transform(df)
+    return pd.DataFrame(reduced_data, columns=[f'Dim_{i+1}' for i in range(n_dim)])
+
+
+if __name__ == "__main__":
+    df = processar_dados(buscar_on_yf=False)
     numeric_columns = df.select_dtypes(include=[np.number]).columns
     for col in numeric_columns:
         df[col] = ajustar_outliers(df[col].values)
@@ -150,20 +165,31 @@ if __name__ == "__main__":
     melhor_silhouette, melhor_k = -1.0, -1
     for k in range(3, 10):
         kmeans = KMeans(n_clusters=k)
+        # kmeans.fit(df_reduzido)
+
         silhouette_avg = silhouette_score(
             df_reduzido, kmeans.fit_predict(df_reduzido))
+
         if silhouette_avg > melhor_silhouette:
             melhor_silhouette, melhor_k = silhouette_avg, k
+
+    # kmeans com o numero ideal de clusters
     kmeans = KMeans(n_clusters=melhor_k)
     df['Cluster'] = kmeans.fit_predict(df_reduzido)
+
+    # Imprimindo os clusters atribuídos
+    print("Clusters atribuídos aos dados:")
+    print(df[['Ticker', 'Cluster']])
 
     # Visualização em 3D
     fig = plt.figure(figsize=(12, 8))
     ax = fig.add_subplot(111, projection='3d')
     x, y, z = df_reduzido['P/L'], df_reduzido['P/VP'], df_reduzido['ROE (%)']
+
+    # Plotando os pontos
     ax.scatter(x, y, z, c=df['Cluster'], cmap='viridis', s=50, alpha=0.6)
-    ax.scatter(kmeans.cluster_centers_[:, 0], kmeans.cluster_centers_[:, 1],
-               kmeans.cluster_centers_[:, 2], c='red', s=200, marker='X', label='Centróides')
+    ax.scatter(kmeans.cluster_centers_[:, 0], kmeans.cluster_centers_[
+               :, 1], kmeans.cluster_centers_[:, 2], c='red', s=200, marker='X', label='Centróides')
     ax.set_xlabel('P/L')
     ax.set_ylabel('P/VP')
     ax.set_zlabel('ROE (%)')
